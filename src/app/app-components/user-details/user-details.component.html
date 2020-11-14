@@ -1,0 +1,65 @@
+<div class="app-user-details-container">
+  <h1>Welcome to KAS Services</h1>
+  <button (click)="fetchSingleUserDetails()">
+    Fetch user Details
+  </button>
+  <ng-container *ngIf="singleUser.length">
+    <ng-container
+      *ngTemplateOutlet="user_card; context: {userData: singleUser[0]}"></ng-container>
+  </ng-container>
+  <button *ngIf="singleUser.length" (click)="fetchMultipleUserDetails()">
+    Fetch more results
+  </button>
+  <ng-container *ngIf="multipleUsers.length ">
+    <ng-container *ngFor="let data of multipleUsers">
+      <ng-container *ngTemplateOutlet="user_card; context: {userData: data}"></ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+<ng-template #user_card let-userData="userData">
+  <div class="user-details-card">
+    <!-- User Details Card -->
+    <div class="card-wrapper">
+      <!-- BG -->
+      <div class="card-wrapper__bg">
+        <div class="card-wrapper__cover-bg">
+        </div>
+        <div class="card-wrapper__user-profile-pic">
+          <img [src]=userData?.picture?.medium alt="User Picture">
+        </div>
+      </div>
+
+      <!-- card details -->
+      <div class="card-wrapper__details">
+
+        <!-- First Fold -->
+        <div class="card-wrapper__user-details">
+          <div class="card-wrapper__user-name">
+            <span>{{userData?.name?.first}} {{userData?.name?.last}}</span>
+          </div>
+          <div class="card-wrapper__address card-wrapper__user-detail">
+              <span> {{userData?.location?.state}}
+                ,  {{userData?.location?.country}}
+                - {{userData?.location?.postcode}}
+              </span>
+          </div>
+        </div>
+
+        <!-- Second Fold -->
+        <div class="card-wrapper__user-contact-info-wrapper">
+          <!-- phone details -->
+          <p>
+            <span class="material-icons">phone</span>
+            <span>{{userData?.cell}}</span>
+          </p>
+
+          <!-- email details -->
+          <p>
+            <span class="material-icons">email</span>
+            <span>{{userData?.email}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

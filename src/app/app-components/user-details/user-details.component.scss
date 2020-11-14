@@ -1,0 +1,103 @@
+.app-user-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  button {
+    min-width: 100px;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+
+  .user-details-card {
+
+    .card-wrapper {
+      width: 320px;
+      border: 1px solid #D8DDE5;
+      border-radius: 10px;
+      box-shadow: #d8dde5 0 0 2px;
+      overflow: hidden;
+      float: left;
+      margin: 0 15px 15px;
+      align-items: center;
+
+      &__bg {
+        height: 100px;
+        background: #DFDFDF url("http://ringvemedia.com/server//bg.jpg") no-repeat 100% 100%;
+        position: relative;
+      }
+
+      &__cover-bg {
+        height: 100%;
+        text-align: center;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      &__user-profile-pic {
+        position: absolute;
+        width: 100px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 100px;
+        height: 100px;
+        left: 50%;
+        margin-left: -50px;
+        top: 30px;
+        overflow: hidden;
+        padding: 10px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+
+      &__details {
+        text-align: center;
+        padding-top: 65px;
+        padding-bottom: 20px;
+      }
+
+      &__user-name {
+        color: #1085E0;
+        text-decoration: none;
+        font-size: 26px;
+        padding: 5px 0;
+      }
+
+      &__user-detail {
+        font-size: 16px;
+        padding: 5px 0;
+        color: #707070;
+      }
+
+      &__user-contact-info-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        p {
+          display: flex;
+          align-items: center;
+          margin-top: 5px;
+
+          span {
+            color: #707070;
+            padding: 0 5px;
+
+            &.material-icons {
+              color: #1085E0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
